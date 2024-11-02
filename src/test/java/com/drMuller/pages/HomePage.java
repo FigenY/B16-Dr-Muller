@@ -43,6 +43,7 @@ WebDriver driver;
     public void verifyAlertMessage(String alertMessage) {
         this.alertMessage.getText();
     }
+
     @FindBy (xpath = "//a[@class='ml-1']//img[@title='EN']")
     public WebElement englishButton;
 
