@@ -31,7 +31,6 @@ public class changeLanguage_StepDefs {
     public void the_user_changes_the_language_to_german_using_the_toggle() {
         homePage.catalog.click();
         homePage.deutschButton.click();
-
     }
 
     @Then("The user sees page title update to German.")
@@ -41,10 +40,8 @@ public class changeLanguage_StepDefs {
 
     @And("The user sees that the page title has not been updated in German.")
     public void theUserSeesThatThePageTitleHasNotBeenUpdatedInGerman() {
-        //homePage.catalog.click();
         String expectedTitle = "Dr Müller. katalog";
         String actualTitle = homePage.getPageTitle();
         Assert.assertFalse("Page title is not Deutsch", expectedTitle.equals(actualTitle));
-
     }
 }
