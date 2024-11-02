@@ -1,13 +1,6 @@
 package com.drMuller.pages;
-
-import com.drMuller.utilities.BrowserUtils;
-import com.drMuller.utilities.Driver;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
 
@@ -38,8 +31,13 @@ public class HomePage extends BasePage {
     @FindBy (xpath = "//textarea[@name='Enquiry']")
     public WebElement enquriy;
 
-    @FindBy (xpath = "//button[@name='send-email']")
+    @FindBy (xpath = "//div[@class='d-flex justify-content-center BtnArea']//button[@class='btn btn-primary col-12 col-md-4']")
     public WebElement submit;
 
+    @FindBy (xpath = "//div[@class='alert alert-success result']")
+    public WebElement alertMessage;
 
+    public void verifyAlertMessage(String alertMessage) {
+        this.alertMessage.getText();
+    }
 }

@@ -4,15 +4,12 @@ import com.drMuller.pages.BasePage;
 import com.drMuller.pages.HomePage;
 import com.drMuller.pages.LoginPage;
 import com.drMuller.utilities.BrowserUtils;
-import com.drMuller.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 
 public class Contact_StepDefs extends BasePage {
-    LoginPage loginPage = new LoginPage();
+
     HomePage homePage = new HomePage();
 
     @When("The user locates and clicks on the {string} link to open the Contact page.")
@@ -35,7 +32,7 @@ public class Contact_StepDefs extends BasePage {
         homePage.whatsApp.isDisplayed();
     }
 
-      @Then("The user clicks on the WhatsApp icon.")
+    @Then("The user clicks on the WhatsApp icon.")
     public void the_user_clicks_on_the_whats_app_icon() {
         homePage.whatsApp.click();
     }
@@ -67,7 +64,7 @@ public class Contact_StepDefs extends BasePage {
 
     @When("The user sees that the Contact Form is visible on the Contact page.")
     public void the_user_sees_that_the_contact_form_is_visible_on_the_contact_page() {
-
+        homePage.name.isDisplayed();
     }
 
     @Then("The user fills the Name field.")
@@ -90,13 +87,15 @@ public class Contact_StepDefs extends BasePage {
         homePage.enquriy.sendKeys("I have a question about…");
     }
 
-    @Then("The user clicks on the Submit or Send -button.")
-    public void the_user_clicks_on_the_submit_or_send_button() {
+    @And("The user clicks on the Submit button.")
+    public void theUserClicksOnTheSubmitButton() {
         homePage.submit.click();
     }
 
-    @Then("Verify that a confirmation message appears.")
-    public void verify_that_a_confirmation_message_appears() {
-
+    @Then("Verify that a {string} appears.")
+    public void verifyThatAAppears(String alertMessage) {
+        BrowserUtils.waitFor(2);
+        BrowserUtils.scrollToElement(homePage.alertMessage);
+        homePage.verifyAlertMessage(alertMessage);
     }
 }
