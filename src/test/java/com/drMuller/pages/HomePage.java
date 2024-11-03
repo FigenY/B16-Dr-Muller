@@ -1,9 +1,12 @@
 package com.drMuller.pages;
+import com.drMuller.utilities.Driver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
-
+WebDriver driver;
     @FindBy (xpath = "//a[@href='/contactus']")
     public WebElement contactUs;
 
@@ -40,4 +43,30 @@ public class HomePage extends BasePage {
     public void verifyAlertMessage(String alertMessage) {
         this.alertMessage.getText();
     }
+
+    @FindBy (xpath = "//a[@class='ml-1']//img[@title='EN']")
+    public WebElement englishButton;
+
+    @FindBy (xpath = "//a[@class='ml-1']//img[@title='DE']")
+    public WebElement deutschButton;
+
+    @FindBy (xpath = "//a[@href='/restorative-produkte']")
+    public WebElement restorativeProdukte;
+
+    @FindBy (xpath = "//a[@href='/catalog']")
+    public WebElement catalog;
+
+    @FindBy (xpath = "(//a[@class='nav-link-style d-flex align-items-center py-2'])[1]")
+    public WebElement composite;
+
+    public HomePage() {
+        this.driver = Driver.getDriver();
+        PageFactory.initElements(driver, this);
+    }
+    public String getPageTitle() {
+        return driver.getTitle();
+    }
+
 }
+
+

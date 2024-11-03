@@ -4,9 +4,12 @@ import com.drMuller.pages.BasePage;
 import com.drMuller.pages.HomePage;
 import com.drMuller.pages.LoginPage;
 import com.drMuller.utilities.BrowserUtils;
+import com.drMuller.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 
 public class Contact_StepDefs extends BasePage {
 
@@ -79,17 +82,18 @@ public class Contact_StepDefs extends BasePage {
 
     @Then("The user fills the Subject field.")
     public void the_user_fills_the_subject_field() {
-        homePage.subject.sendKeys("Enter subject.");
+        homePage.subject.sendKeys("My Teeth");
     }
 
     @Then("The user fills the Enquriy field.")
     public void the_user_fills_the_enquriy_field() {
-        homePage.enquriy.sendKeys("I have a question about…");
+        homePage.enquriy.sendKeys("Can I make an appointment");
     }
 
     @And("The user clicks on the Submit button.")
     public void theUserClicksOnTheSubmitButton() {
         homePage.submit.click();
+        BrowserUtils.waitFor(2);
     }
 
     @Then("Verify that a {string} appears.")
