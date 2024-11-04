@@ -1,7 +1,6 @@
 package com.drMuller.step_definitions;
 
 import com.drMuller.pages.HomePage;
-import com.drMuller.pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
