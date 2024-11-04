@@ -121,5 +121,9 @@ public class Register_StepDefs {
         Assert.assertEquals(registerPage.errorMessageBeidePassword.getText(),errorMessageForInvalidPassword);
     }
 
+    @Then("verify that user can see other error message for invalid Password {string}")
+    public void verify_that_user_can_see_other_error_message_for_invalid_password(String otherErrorMessageForInvalidPassword) {
+        Assert.assertEquals(registerPage.otherErrorMessageBeidePassword.getText(),otherErrorMessageForInvalidPassword);
+    }
 
 }

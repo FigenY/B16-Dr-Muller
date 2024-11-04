@@ -1,12 +1,10 @@
 package com.drMuller.step_definitions;
 
 import com.drMuller.pages.ChangePasswordPage;
-import com.drMuller.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import javax.sql.rowset.BaseRowSet;
 
 public class ChangePassword_StepDefs {
 
@@ -29,8 +27,7 @@ public class ChangePassword_StepDefs {
 
     @When("User enters {string} neues Passwort")
     public void user_enters_neues_passwort(String neuesPasswort) {
-       // BrowserUtils.waitFor(2);
-       changePasswordPage.newPasswordInput.sendKeys(neuesPasswort);
+        changePasswordPage.newPasswordInput.sendKeys(neuesPasswort);
     }
 
     @When("User enters {string} Passwort bestätigen")

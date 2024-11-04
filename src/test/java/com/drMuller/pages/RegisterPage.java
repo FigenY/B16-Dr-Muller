@@ -53,4 +53,7 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//span/p")
     public WebElement errorMessageBeidePassword;
 
+    @FindBy(xpath = "//span//li")
+    public WebElement otherErrorMessageBeidePassword;
+
 }

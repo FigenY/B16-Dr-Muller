@@ -31,7 +31,9 @@ public class LoginPage extends BasePage {
         Driver.getDriver().get(ConfigReader.get("url"));
         accountButton.click();
         emailInput.sendKeys(username);
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(3);
         passwordInput.sendKeys(password + Keys.ENTER);
+        BrowserUtils.waitFor(2);
+       //loginButton.click();
     }
 }
