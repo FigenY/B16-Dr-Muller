@@ -122,3 +122,4 @@ Feature: Register Functionality
     When user enters "1234" password Confirm
     And user clicks registering button
     Then verify that user can see error message for invalid Password "muss die folgenden Regeln erfüllen:"
+    Then verify that user can see other error message for invalid Password "muss mindestens 6 Zeichen enthalten"

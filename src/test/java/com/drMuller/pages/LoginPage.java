@@ -3,8 +3,11 @@ package com.drMuller.pages;
 import com.drMuller.utilities.BrowserUtils;
 import com.drMuller.utilities.ConfigReader;
 import com.drMuller.utilities.Driver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.security.Key;
 
 public class LoginPage extends BasePage {
 
@@ -28,7 +31,9 @@ public class LoginPage extends BasePage {
         Driver.getDriver().get(ConfigReader.get("url"));
         accountButton.click();
         emailInput.sendKeys(username);
-        passwordInput.sendKeys(password);
-        loginButton.click();
+        BrowserUtils.waitFor(3);
+        passwordInput.sendKeys(password + Keys.ENTER);
+        BrowserUtils.waitFor(2);
+       //loginButton.click();
     }
 }
