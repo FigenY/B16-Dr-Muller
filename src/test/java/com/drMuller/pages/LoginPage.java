@@ -9,16 +9,19 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage extends BasePage {
 
     @FindBy (xpath = "//div[@class='navbar-tool-text ml-n3']")
-    WebElement accountButton;
+    public WebElement accountButton;
 
     @FindBy (id = "Email")
-    WebElement emailInput;
+    public WebElement emailInput;
 
     @FindBy (id = "Password")
-    WebElement passwordInput;
+    public WebElement passwordInput;
 
     @FindBy (xpath = "//button[@class='btn btn-primary col-12']")
-    WebElement loginButton;
+    public WebElement loginButton;
+
+    @FindBy (xpath = "//button[@class='btn btn-success col-12']")
+    public WebElement registrierungButton;
 
 
     public void login(String username, String password) {
