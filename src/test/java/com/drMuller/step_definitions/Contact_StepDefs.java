@@ -103,6 +103,6 @@ public class Contact_StepDefs extends BasePage {
     public void verifyThatAAppears(String alertMessage) {
         BrowserUtils.waitFor(2);
         BrowserUtils.scrollToElement(homePage.alertMessage);
-   //     homePage.verifyAlertMessage(alertMessage);
+
     }
 }

@@ -26,6 +26,6 @@ Feature: Contact Icon function
     Then The user fills the Email field.
     Then The user fills the Subject field.
     Then The user fills the Enquriy field.
-   # And The user clicks on the Submit button.
-   # Then Verify that a "alertMessage" appears.
+
+
 

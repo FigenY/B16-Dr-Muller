@@ -95,19 +95,23 @@ public class HomePage extends BasePage {
     @FindBy(css = "[onclick=\"Billing.save()\"]")
     public WebElement zahlungsinformationWeiter;
 
+    @FindBy(css = "button.btn.btn-primary[onclick=\"PaymentInfo.save()\"]")
+    public WebElement zahlungsinfoZuBestatigenWeiter;
+
+
     @FindBy(xpath = "//button[@onclick='ConfirmOrder.save()']")
     public WebElement auftragBestatigenWeiter;
 
     @FindBy(xpath = "//select[@name='billing_address_id']")
-    public WebElement versendeSelbeAdresseLoschen;
+    public WebElement versandContinue;
 
-    @FindBy(xpath = "//select[@name='billing_address_id']")
+    @FindBy(xpath = "//select[@id='billing-address-select']/option")
     public WebElement neuAdresseWahlenButton;
 
     @FindBy(xpath = "//select[@id='billing-address-select' and contains(@class, 'address-select')]")
     public WebElement neuAnschriftErstellen;
 
-    @FindBy(xpath = "//select[@name='billing_address_id']/option[@value='140']")
+    @FindBy(xpath = "//select[@id='billing-address-select']/option[@value='140']")
     public WebElement neuAdresseOptionWahlen;
 
     @FindBy(xpath = "(//button[@class='btn btn-primary'])[4]")

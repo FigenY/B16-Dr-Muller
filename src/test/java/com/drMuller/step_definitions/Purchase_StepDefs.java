@@ -7,10 +7,10 @@ import com.drMuller.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.UnhandledAlertException;
+import org.openqa.selenium.WebDriver;
 
 public class Purchase_StepDefs {
 
@@ -41,20 +41,15 @@ public class Purchase_StepDefs {
         BrowserUtils.clickWithJS(homePage.kasse2);
 
     }
-
-    @And("The user selects an existing billing address and clicks continue button")
-    public void theUserSelectsAnExistingBillingAddressAndClicksContinueButton() {
+    @And("The user selects an same existing billing address and clicks continue button")
+    public void theUserSelectsAnSameExistingBillingAddressAndClicksContinueButton() {
         BrowserUtils.waitFor(3);
-        homePage.versendeSelbeAdresseLoschen.click();
+        homePage.versandContinue.click();
     }
-
 
     @Then("The user checks {string} \\(default)")
     public void the_user_checks_default(String string) {
-        homePage.neuAdresseWahlenButton.click();
-        homePage.neuAdresseOptionWahlen.click();
-        BrowserUtils.waitFor(3);
-        BrowserUtils.clickWithJS(homePage.versandWeiter);
+        BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
     }
 
     @Then("The user selects a {string} and clicks continue button")
@@ -62,7 +57,7 @@ public class Purchase_StepDefs {
         try {
             WebDriver driver = Driver.getDriver();
             Alert alert = driver.switchTo().alert();
-            alert.accept(); // Alert'i kabul et
+            alert.accept();
         } catch (NoAlertPresentException e) {
 
         }
@@ -75,31 +70,25 @@ public class Purchase_StepDefs {
             BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
         }
     }
-    @And("The user chooses to add a new address")
-    public void theUserChoosesToAddANewAddress() {
-        BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
+
+    @Then("The user clicks {string} and clicks continue button")
+    public void the_user_clicks_and_clicks_continue_button() {
+        BrowserUtils.waitFor(2);
+        BrowserUtils.clickWithJS(homePage.zahlungsinfoZuBestatigenWeiter);
     }
+    //
+    @And("The user chooses to add a different new address and clicks continue button")
+    public void theUserChoosesToAddADifferentNewAddressAndClicksContinueButton() {
+        BrowserUtils.waitFor(2);
+        homePage.neuAdresseWahlenButton.click();
+        BrowserUtils.waitFor(2);
+        homePage.neuAdresseOptionWahlen.click();
+        BrowserUtils.waitFor(3);
+        BrowserUtils.clickWithJS(homePage.versandContinue);
+    }
+
     @Then("The user fills in new address fields if {string} is selected and clicks continue button")
     public void theUserFillsInNewAddressFieldsIfIsSelectedAndClicksContinueButton(String arg0) {
-        /*try {
-            WebDriver driver = Driver.getDriver();
-            Alert alert = driver.switchTo().alert();
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-            wait.until(ExpectedConditions.alertIsPresent());
-            System.out.println("Unexpected alert present: " + alert.getText());
-            alert.accept();
-            System.out.println("Alert accepted and closed.");
-       // } catch (NoAlertPresentException e) {
-            //System.out.println("No alert present. Proceeding normally.");
-        } catch (UnhandledAlertException e) {
-            System.out.println("Unhandled alert found. Attempting to close.");
-            WebDriver driver = Driver.getDriver();
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            System.out.println("Unhandled alert accepted and closed.");
-        } catch (WebDriverException e) {
-            System.out.println("An unexpected WebDriver exception occurred: " + e.getMessage());
-        }*/
         BrowserUtils.waitFor(5);
         BrowserUtils.clickWithJS(homePage.versandartWeiter);
         BrowserUtils.waitFor(3);
@@ -108,32 +97,48 @@ public class Purchase_StepDefs {
 
     @Then("The user unchecks {string}")
     public void the_user_unchecks(String string) {
-        homePage.zahlungsinformationWeiter.click();
-        homePage.auftragBestatigenWeiter.click();
+
+         homePage.neuAdresseWahlenButton.click();
+         BrowserUtils.waitFor(2);
+        homePage.neuAnschriftErstellen.click();
+        BrowserUtils.waitFor(3);
+       BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
+
+
     }
 
-    @Then("The user fills in the {string} fields and clicks continue button")
-    public void the_user_fills_in_the_fields_and_clicks_continue_button(String string) {
-        BrowserUtils.waitFor(2);
-        homePage.lieferanschriftWeiter.click();
-        BrowserUtils.waitFor(2);
-        homePage.auftragBestatigenWeiter.click();
-    }
+    /*
+        @Then("The user fills in the {string} fields and clicks continue button")
+        public void the_user_fills_in_the_fields_and_clicks_continue_button(String string) {
+            BrowserUtils.waitFor(2);
+            homePage.lieferanschriftWeiter.click();
+            BrowserUtils.waitFor(2);
+            homePage.auftragBestatigenWeiter.click();
+        }
 
+
+     */
     @Then("The user selects a {string}")
     public void the_user_selects_a(String string) {
-        homePage.zahlungsinformationWeiter.click();
+        try {
+            WebDriver driver = Driver.getDriver();
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (NoAlertPresentException e) {
+
+        }
+
+        try {
+            BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
+        } catch (UnhandledAlertException e) {
+            Alert alert = Driver.getDriver().switchTo().alert();
+            alert.accept();
+            BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
+        }
     }
 
-    @Then("The user sees the Payment Information and clicks continue button")
-    public void the_user_sees_the_payment_information_and_clicks_continue_button() {
-        homePage.auftragBestatigenWeiter.click();
-    }
 
-    @Then("The user clicks {string} and clicks continue button")
-    public void the_user_clicks_and_clicks_continue_button(String string) {
 
-    }
 
 
 }
