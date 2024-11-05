@@ -20,8 +20,8 @@ Feature: Purchase Function
   @wip
   Scenario: Complete Purchase with Adding New Addrcess (Billing and Shipping Address Are Different
     And The user proceeds to the "Checkout" page.
-    And The user chooses to add a different new address and clicks continue button
-    Then The user unchecks "Ship to the same address"
+    And The user chooses to add a different new address
+    Then The user unchecks "Ship to the same address"and clicks continue button
     Then  The user selects a "Payment Method"
   # Then The user sees the Payment Information and clicks continue button
   #  And The user clicks "Confirm Order" and clicks continue button

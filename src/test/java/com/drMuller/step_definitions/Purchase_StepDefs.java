@@ -76,35 +76,20 @@ public class Purchase_StepDefs {
         BrowserUtils.waitFor(2);
         BrowserUtils.clickWithJS(homePage.zahlungsinfoZuBestatigenWeiter);
     }
-    //
-    @And("The user chooses to add a different new address and clicks continue button")
-    public void theUserChoosesToAddADifferentNewAddressAndClicksContinueButton() {
+
+    @And("The user chooses to add a different new address")
+    public void theUserChoosesToAddADifferentNewAddress() {
         BrowserUtils.waitFor(2);
         homePage.neuAdresseWahlenButton.click();
         BrowserUtils.waitFor(2);
         homePage.neuAdresseOptionWahlen.click();
+    }
+
+    @Then("The user unchecks {string}and clicks continue button")
+    public void theUserUnchecksAndClicksContinueButton(String arg0) {
+        BrowserUtils.clickWithJS(homePage.versendeAnDieSelbeAdresseLoschen);
         BrowserUtils.waitFor(3);
         BrowserUtils.clickWithJS(homePage.versandContinue);
-    }
-
-    @Then("The user fills in new address fields if {string} is selected and clicks continue button")
-    public void theUserFillsInNewAddressFieldsIfIsSelectedAndClicksContinueButton(String arg0) {
-        BrowserUtils.waitFor(5);
-        BrowserUtils.clickWithJS(homePage.versandartWeiter);
-        BrowserUtils.waitFor(3);
-
-    }
-
-    @Then("The user unchecks {string}")
-    public void the_user_unchecks(String string) {
-
-         homePage.neuAdresseWahlenButton.click();
-         BrowserUtils.waitFor(2);
-        homePage.neuAnschriftErstellen.click();
-        BrowserUtils.waitFor(3);
-       BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
-
-
     }
 
     /*
@@ -136,8 +121,6 @@ public class Purchase_StepDefs {
             BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
         }
     }
-
-
 
 
 

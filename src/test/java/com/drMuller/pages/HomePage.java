@@ -114,6 +114,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//select[@id='billing-address-select']/option[@value='140']")
     public WebElement neuAdresseOptionWahlen;
 
+    @FindBy(xpath = "//input[@id='ShipToSameAddress']")
+    public WebElement versendeAnDieSelbeAdresseLoschen;
+
     @FindBy(xpath = "(//button[@class='btn btn-primary'])[4]")
     public WebElement lieferanschriftWeiter;
 
