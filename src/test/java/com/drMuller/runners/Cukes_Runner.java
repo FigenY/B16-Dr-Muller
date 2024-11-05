@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         glue="com/drMuller/step_definitions",
         dryRun = false,
         publish = false,
-        tags = ""
+        tags = "@wip"
 
 
 )

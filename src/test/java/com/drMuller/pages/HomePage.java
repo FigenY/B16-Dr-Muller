@@ -86,19 +86,41 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//i[@class='czi-card mr-2 font-size-base align-middle']")
     public WebElement kasse;
 
-    @FindBy(xpath = "//button[@onclick='Billing.save()']")
-    public WebElement weiterRechnungAdsresse;
+    @FindBy(xpath = "//select[@name='billing_address_id']")
+    public WebElement rechnungSameAdresse;
 
-    @FindBy(xpath = "(//button[@onclick='ShippingMethod.save()']")
+    @FindBy(xpath = "//button[@onclick='ConfirmOrder.save()']")
     public WebElement versandWeiter;
 
-    @FindBy(xpath = "(//button[@onclick='PaymentInfo.save()']")
+    @FindBy(xpath = "//button[@class='btn btn-primary' and @onclick='PaymentInfo.save()' and text()='Weiter']")
     public WebElement zahlungsinformationWeiter;
 
-    @FindBy(xpath = "(//button[@onclick='ConfirmOrder.save()']")
+    @FindBy(xpath = "//button[@onclick='ConfirmOrder.save()']")
     public WebElement auftragBestatigenWeiter;
 
-    @FindBy(xpath = "//div[@class='title']/strong")
+    @FindBy(xpath = "//select[@name='billing_address_id']")
+    public WebElement versendeSelbeAdresseLoschen;
+
+    @FindBy(xpath = "//select[@name='billing_address_id']")
+    public WebElement neuAdresseWahlenButton;
+
+    @FindBy(xpath = "//select[@id='billing-address-select' and contains(@class, 'address-select')]")
+    public WebElement neuAnschriftErstellen;
+
+    @FindBy(xpath = "//select[@name='billing_address_id']/option[@value='140']")
+    public WebElement neuAdresseOptionWahlen;
+
+    @FindBy(xpath = "(//button[@class='btn btn-primary'])[4]")
+    public WebElement lieferanschriftWeiter;
+
+    @FindBy(xpath = "//button[@onclick='ShippingMethod.save()']")
+    public WebElement versandartWeiter;
+
+
+
+    @FindBy(xpath = "//button[@title='Weiter']")
+    public WebElement rechnungAdresseWeiter;
+    @FindBy(xpath = "")//div[@class='title']/strong
     public WebElement erfolgreichUbermittel;
 
     @FindBy(xpath = "//button[@id='checkout']")
