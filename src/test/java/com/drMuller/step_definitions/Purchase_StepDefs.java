@@ -71,11 +71,26 @@ public class Purchase_StepDefs {
         }
     }
 
-    @Then("The user clicks {string} and clicks continue button")
-    public void the_user_clicks_and_clicks_continue_button() {
+
+    @And("The user clicks Payment Information and clicks continue button")
+    public void theUserClicksPaymentInformationAndClicksContinueButton() {
         BrowserUtils.waitFor(2);
-        BrowserUtils.clickWithJS(homePage.zahlungsinfoZuBestatigenWeiter);
+        BrowserUtils.clickWithJS(homePage.lieferanschriftWeiter);
+
     }
+
+    @Then("The user clicks Confirm Order and clicks continue button")
+    public void theUserClicksConfirmOrderAndClicksContinueButton() {
+        BrowserUtils.clickWithJS(homePage.lieferanschriftWeiter);
+    }
+
+
+    @Then("The user clicks and clicks continue button")
+    public void theUserClicksAndClicksContinueButton(String arg0) {
+
+    }
+
+
 
     @And("The user chooses to add a different new address")
     public void theUserChoosesToAddADifferentNewAddress() {
