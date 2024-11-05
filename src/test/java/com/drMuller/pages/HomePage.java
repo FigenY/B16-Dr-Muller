@@ -59,6 +59,12 @@ WebDriver driver;
     @FindBy (xpath = "(//a[@class='nav-link-style d-flex align-items-center py-2'])[1]")
     public WebElement composite;
 
+    @FindBy (xpath = "(//input[@type='text'])[1]")
+    public WebElement searchbar;
+
+    @FindBy (xpath = "//a[@class='ui-menu-item-wrapper']")
+    public WebElement searchResult;
+
     public HomePage() {
         this.driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
