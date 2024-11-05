@@ -26,6 +26,10 @@ public class LoginPage extends BasePage {
     @FindBy (xpath = "//button[@class='btn btn-success col-12']")
     public WebElement registrierungButton;
 
+    @FindBy (xpath = "//div[contains(text(), ' Anmeldung')]//li")
+    public WebElement warningMessage;
+
+
 
     public void login(String username, String password) {
         Driver.getDriver().get(ConfigReader.get("url"));
