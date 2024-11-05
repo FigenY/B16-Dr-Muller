@@ -68,6 +68,12 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//img[@class='d-block w-100']")
     public WebElement composite;
 
+    @FindBy (xpath = "(//input[@type='text'])[1]")
+    public WebElement searchbar;
+
+    @FindBy (xpath = "//a[@class='ui-menu-item-wrapper']")
+    public WebElement searchResult;
+
     public HomePage() {
         this.driver = Driver.getDriver();
         PageFactory.initElements(driver, this);

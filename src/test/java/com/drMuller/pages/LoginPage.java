@@ -12,16 +12,23 @@ import java.security.Key;
 public class LoginPage extends BasePage {
 
     @FindBy (xpath = "//div[@class='navbar-tool-text ml-n3']")
-    WebElement accountButton;
+    public WebElement accountButton;
 
     @FindBy (id = "Email")
-    WebElement emailInput;
+    public WebElement emailInput;
 
     @FindBy (id = "Password")
-    WebElement passwordInput;
+    public WebElement passwordInput;
 
     @FindBy (xpath = "//button[@class='btn btn-primary col-12']")
-    WebElement loginButton;
+    public WebElement loginButton;
+
+    @FindBy (xpath = "//button[@class='btn btn-success col-12']")
+    public WebElement registrierungButton;
+
+    @FindBy (xpath = "//div[contains(text(), ' Anmeldung')]//li")
+    public WebElement warningMessage;
+
 
     public void login(String username, String password) {
         Driver.getDriver().get(ConfigReader.get("url"));
