@@ -8,6 +8,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Purchase_StepDefs {
 
@@ -36,7 +39,6 @@ public class Purchase_StepDefs {
         BrowserUtils.waitFor(2);
         BrowserUtils.scrollToElement(homePage.kasse2);
         BrowserUtils.clickWithJS(homePage.kasse2);
-
 
     }
 
@@ -73,16 +75,22 @@ public class Purchase_StepDefs {
             BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
         }
     }
+    @And("The user chooses to add a new address")
+    public void theUserChoosesToAddANewAddress() {
+        BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
+    }
     @Then("The user fills in new address fields if {string} is selected and clicks continue button")
     public void theUserFillsInNewAddressFieldsIfIsSelectedAndClicksContinueButton(String arg0) {
-        try {
+        /*try {
             WebDriver driver = Driver.getDriver();
             Alert alert = driver.switchTo().alert();
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+            wait.until(ExpectedConditions.alertIsPresent());
             System.out.println("Unexpected alert present: " + alert.getText());
             alert.accept();
             System.out.println("Alert accepted and closed.");
-        } catch (NoAlertPresentException e) {
-            System.out.println("No alert present. Proceeding normally.");
+       // } catch (NoAlertPresentException e) {
+            //System.out.println("No alert present. Proceeding normally.");
         } catch (UnhandledAlertException e) {
             System.out.println("Unhandled alert found. Attempting to close.");
             WebDriver driver = Driver.getDriver();
@@ -91,9 +99,10 @@ public class Purchase_StepDefs {
             System.out.println("Unhandled alert accepted and closed.");
         } catch (WebDriverException e) {
             System.out.println("An unexpected WebDriver exception occurred: " + e.getMessage());
-        }
+        }*/
         BrowserUtils.waitFor(5);
         BrowserUtils.clickWithJS(homePage.versandartWeiter);
+        BrowserUtils.waitFor(3);
 
     }
 
@@ -123,24 +132,6 @@ public class Purchase_StepDefs {
 
     @Then("The user clicks {string} and clicks continue button")
     public void the_user_clicks_and_clicks_continue_button(String string) {
-
-    }
-    //*********
-
-    @Then("The user chooses to add a new address")
-    public void the_user_chooses_to_add_a_new_address() {
-        homePage.neuAdresseWahlenButton.click();
-        homePage.neuAdresseOptionWahlen.click();
-        homePage.rechnungAdresseWeiter.click();   }
-
-    @Then("The user leaves required fields blank in {string}")
-    public void the_user_leaves_required_fields_blank_in(String string) {
-
-
-    }
-
-    @Then("The user attempts to proceed with the purchase")
-    public void the_user_attempts_to_proceed_with_the_purchase() {
 
     }
 

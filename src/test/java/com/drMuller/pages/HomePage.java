@@ -92,7 +92,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@onclick='ConfirmOrder.save()']")
     public WebElement versandWeiter;
 
-    @FindBy(xpath = "//button[@class='btn btn-primary' and @onclick='PaymentInfo.save()' and text()='Weiter']")
+    @FindBy(css = "[onclick=\"Billing.save()\"]")
     public WebElement zahlungsinformationWeiter;
 
     @FindBy(xpath = "//button[@onclick='ConfirmOrder.save()']")
