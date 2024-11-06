@@ -69,7 +69,11 @@ WebDriver driver;
     @FindBy (xpath = " //input[@type=\"button\"]")
     public WebElement subscribeButton;
 
+    @FindBy (xpath = "(//input[@type='text'])[1]")
+    public WebElement searchbar;
 
+    @FindBy (xpath = "//a[@class='ui-menu-item-wrapper']")
+    public WebElement searchResult;
 
     public HomePage() {
         this.driver = Driver.getDriver();
