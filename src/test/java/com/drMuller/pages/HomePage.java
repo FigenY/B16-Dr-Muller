@@ -1,5 +1,6 @@
 package com.drMuller.pages;
 import com.drMuller.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,6 +65,16 @@ WebDriver driver;
 
     @FindBy (xpath = "//a[@class='ui-menu-item-wrapper']")
     public WebElement searchResult;
+
+    @FindBy (xpath = "//a[@class='navbar-tool-icon-box bg-secondary dropdown-toggle']")
+    public WebElement shoppingCartIcon;
+
+    @FindBy (xpath = "//div[@class='order-lg-1 pr-lg-4 text-center text-lg-left']")
+    public WebElement pageTitle;
+
+    public WebElement getCategory (String categoryName) {
+        return driver.findElement(By.xpath("//div[@class='col-md-3 col-6 mb-3' and .//text()='"+ categoryName + "']"));
+    }
 
     public HomePage() {
         this.driver = Driver.getDriver();
