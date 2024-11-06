@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -84,6 +85,10 @@ public class HomePage extends BasePage {
     @FindBy (xpath = "//a[@class='ui-menu-item-wrapper']")
     public WebElement searchResult;
 
+
+    @FindBy (xpath = "//*[@class='nav-link dropdown-toggle']")
+    public WebElement restorativeProdukteButton;
+
     @FindBy (xpath = "//a[@class='navbar-tool-icon-box bg-secondary dropdown-toggle']")
     public WebElement shoppingCartIcon;
 
@@ -93,6 +98,7 @@ public class HomePage extends BasePage {
     public WebElement getCategory (String categoryName) {
         return driver.findElement(By.xpath("//div[@class='col-md-3 col-6 mb-3' and .//text()='"+ categoryName + "']"));
     }
+
 
     public HomePage() {
         this.driver = Driver.getDriver();
@@ -124,6 +130,21 @@ public class HomePage extends BasePage {
 
     public WebElement getMyAccountFooterPages(String myAccountCategoryPageTitle){
         return driver.findElement(By.xpath("(//h1[text()='"+myAccountCategoryPageTitle+"'])"));
+    }
+    public WebElement getRestorativeCategory(int restorativeCategoryNumber){
+        return driver.findElement(By.xpath("(//*[@class=\"dropdown-menu\"]/li)[" + restorativeCategoryNumber + "]"));
+    }
+
+    public WebElement getRestorativeProduktePages(String restorativeProduktePageTitle){
+        return driver.findElement(By.xpath("(//h1[text()='"+restorativeProduktePageTitle+"'])"));
+
+    }
+    public WebElement getnavbarCategories(int navbarCategoriesNumber){
+        return driver.findElement(By.xpath("(//*[@class=\"navbar-nav\"]/li)[" + navbarCategoriesNumber + "]"));
+    }
+    public WebElement getnavbarPagesTitel(String navbarPagesTitel){
+        return driver.findElement(By.xpath("(//h1[text()='"+navbarPagesTitel+"'])"));
+
     }
 
     @FindBy(xpath = "(//button[@class='btn btn-danger btn-shadow btn-block btn-sm'])[1]")

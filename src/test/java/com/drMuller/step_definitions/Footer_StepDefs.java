@@ -7,9 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import javax.sql.rowset.BaseRowSet;
-
-public class footer_StepDefs extends BasePage {
+public class Footer_StepDefs extends BasePage {
     HomePage homePage = new HomePage();
 
     @When("The user clicks on the {int} category in the footer")
