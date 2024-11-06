@@ -2,7 +2,7 @@ Feature:User can Change Language
   As a user, I should be able to the change language
 
   Background:
-    Given User logins with valid credentials "email" "pass"
+    Given User logins with valid credentials "batch16@gmail.com" "eurotech"
 
   Scenario:Verify Language Change Updates Page Title, Navigation Bar, and Headings
     When The user changes the language to English using the toggle at the top right.

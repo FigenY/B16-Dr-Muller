@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class changeLanguage_StepDefs {
+public class ChangeLanguage_StepDefs {
     HomePage homePage = new HomePage();
 
     @When("The user changes the language to English using the toggle at the top right.")

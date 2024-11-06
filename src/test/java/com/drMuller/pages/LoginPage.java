@@ -30,14 +30,13 @@ public class LoginPage extends BasePage {
     public WebElement warningMessage;
 
 
-
     public void login(String username, String password) {
         Driver.getDriver().get(ConfigReader.get("url"));
         accountButton.click();
         emailInput.sendKeys(username);
         BrowserUtils.waitFor(3);
         passwordInput.sendKeys(password + Keys.ENTER);
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(3);
        //loginButton.click();
     }
 }
