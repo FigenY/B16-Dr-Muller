@@ -14,7 +14,9 @@ import org.openqa.selenium.WebDriver;
 public class Contact_StepDefs extends BasePage {
 
     HomePage homePage = new HomePage();
-    LoginPage loginPage=new LoginPage();
+
+    LoginPage loginPage = new LoginPage();
+
 
     @When("The user locates and clicks on the {string} link to open the Contact page.")
     public void the_user_locates_and_clicks_on_the_link_to_open_the_contact_page(String string) {
@@ -104,5 +106,10 @@ public class Contact_StepDefs extends BasePage {
         BrowserUtils.waitFor(2);
         BrowserUtils.scrollToElement(homePage.alertMessage);
 
+    }
+
+    @When("The user clicks Home page button")
+    public void the_user_clicks_home_page_button() {
+        loginPage.homePageButton.click();
     }
 }
