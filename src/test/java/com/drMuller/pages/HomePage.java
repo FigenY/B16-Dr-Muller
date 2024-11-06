@@ -1,5 +1,6 @@
 package com.drMuller.pages;
 import com.drMuller.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,12 +60,41 @@ WebDriver driver;
     @FindBy (xpath = "(//a[@class='nav-link-style d-flex align-items-center py-2'])[1]")
     public WebElement composite;
 
+    @FindBy (id = "newsletter-result-block")
+    public WebElement newsletterResult;
+
+    @FindBy (id = "newsletter-email")
+    public WebElement newsletterEmailBox;
+
+    @FindBy (xpath = " //input[@type=\"button\"]")
+    public WebElement subscribeButton;
+
+
+
     public HomePage() {
         this.driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
     }
     public String getPageTitle() {
         return driver.getTitle();
+    }
+    public WebElement getInformationCategory(int informationCategoryNumber){
+        return driver.findElement(By.xpath("(//*[@class=\"widget-list\"])[1]/li[" + informationCategoryNumber + "]"));
+    }
+    public WebElement getInformationFooterPages(String informationCategoryPageTitle){
+        return driver.findElement(By.xpath("(//h1[text()='"+informationCategoryPageTitle+"'])"));
+    }
+    public WebElement getHilfeUndServiceCategory(int hilfeUndServiceCategoryNumber){
+        return driver.findElement(By.xpath("(//*[@class=\"widget-list\"])[2]/li[" + hilfeUndServiceCategoryNumber + "]"));
+    }
+    public WebElement getHilfeUndServiceFooterPages(String hilfeUndServiceCategoryPageTitle){
+        return driver.findElement(By.xpath("(//h1[text()='"+hilfeUndServiceCategoryPageTitle+"'])"));
+    }
+    public WebElement getMyAccountCategory(int myAccountCategoryNumber){
+        return driver.findElement(By.xpath("(//*[@class=\"widget-list\"])[3]/li[" + myAccountCategoryNumber + "]"));
+    }
+    public WebElement getMyAccountFooterPages(String myAccountCategoryPageTitle){
+        return driver.findElement(By.xpath("(//h1[text()='"+myAccountCategoryPageTitle+"'])"));
     }
 
 }
