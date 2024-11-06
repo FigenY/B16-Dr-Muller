@@ -71,7 +71,6 @@ public class Purchase_StepDefs {
         }
     }
 
-
     @And("The user clicks Payment Information and clicks continue button")
     public void theUserClicksPaymentInformationAndClicksContinueButton() {
         BrowserUtils.waitFor(2);
@@ -84,13 +83,10 @@ public class Purchase_StepDefs {
         BrowserUtils.clickWithJS(homePage.lieferanschriftWeiter);
     }
 
-
     @Then("The user clicks and clicks continue button")
     public void theUserClicksAndClicksContinueButton(String arg0) {
 
     }
-
-
 
     @And("The user chooses to add a different new address")
     public void theUserChoosesToAddADifferentNewAddress() {
@@ -107,17 +103,7 @@ public class Purchase_StepDefs {
         BrowserUtils.clickWithJS(homePage.versandContinue);
     }
 
-    /*
-        @Then("The user fills in the {string} fields and clicks continue button")
-        public void the_user_fills_in_the_fields_and_clicks_continue_button(String string) {
-            BrowserUtils.waitFor(2);
-            homePage.lieferanschriftWeiter.click();
-            BrowserUtils.waitFor(2);
-            homePage.auftragBestatigenWeiter.click();
-        }
 
-
-     */
     @Then("The user selects a {string}")
     public void the_user_selects_a(String string) {
         try {
@@ -136,9 +122,6 @@ public class Purchase_StepDefs {
             BrowserUtils.clickWithJS(homePage.zahlungsinformationWeiter);
         }
     }
-
-
-
 }
 
 

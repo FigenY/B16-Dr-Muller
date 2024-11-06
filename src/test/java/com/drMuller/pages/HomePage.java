@@ -1,8 +1,8 @@
 package com.drMuller.pages;
 import com.drMuller.utilities.BrowserUtils;
 import com.drMuller.utilities.Driver;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -95,18 +95,23 @@ public class HomePage extends BasePage {
     public WebElement getInformationCategory(int informationCategoryNumber){
         return driver.findElement(By.xpath("(//*[@class=\"widget-list\"])[1]/li[" + informationCategoryNumber + "]"));
     }
+
     public WebElement getInformationFooterPages(String informationCategoryPageTitle){
         return driver.findElement(By.xpath("(//h1[text()='"+informationCategoryPageTitle+"'])"));
     }
+
     public WebElement getHilfeUndServiceCategory(int hilfeUndServiceCategoryNumber){
         return driver.findElement(By.xpath("(//*[@class=\"widget-list\"])[2]/li[" + hilfeUndServiceCategoryNumber + "]"));
     }
+
     public WebElement getHilfeUndServiceFooterPages(String hilfeUndServiceCategoryPageTitle){
         return driver.findElement(By.xpath("(//h1[text()='"+hilfeUndServiceCategoryPageTitle+"'])"));
     }
+
     public WebElement getMyAccountCategory(int myAccountCategoryNumber){
         return driver.findElement(By.xpath("(//*[@class=\"widget-list\"])[3]/li[" + myAccountCategoryNumber + "]"));
     }
+
     public WebElement getMyAccountFooterPages(String myAccountCategoryPageTitle){
         return driver.findElement(By.xpath("(//h1[text()='"+myAccountCategoryPageTitle+"'])"));
     }
@@ -156,8 +161,6 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//button[@onclick='ShippingMethod.save()']")
     public WebElement versandartWeiter;
-
-
 
     @FindBy(xpath = "//button[@title='Weiter']")
     public WebElement rechnungAdresseWeiter;

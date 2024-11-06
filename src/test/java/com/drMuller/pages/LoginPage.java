@@ -36,7 +36,7 @@ public class LoginPage extends BasePage {
         emailInput.sendKeys(username);
         BrowserUtils.waitFor(3);
         passwordInput.sendKeys(password + Keys.ENTER);
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(3);
        //loginButton.click();
     }
 }
