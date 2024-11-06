@@ -29,6 +29,10 @@ public class LoginPage extends BasePage {
     @FindBy (xpath = "//*[@id='navbarCollapse']/ul/li[1]/a")
     public WebElement homePageButton;
 
+    @FindBy (xpath = "//div[contains(text(), ' Anmeldung')]//li")
+    public WebElement warningMessage;
+
+
 
     public void login(String username, String password) {
         Driver.getDriver().get(ConfigReader.get("url"));
@@ -36,7 +40,7 @@ public class LoginPage extends BasePage {
         emailInput.sendKeys(username);
         BrowserUtils.waitFor(3);
         passwordInput.sendKeys(password + Keys.ENTER);
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(3);
        //loginButton.click();
     }
 }

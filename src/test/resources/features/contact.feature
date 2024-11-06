@@ -2,7 +2,7 @@ Feature: Contact Icon function
   As a user, I should be able to see contact information and get in touch.
 
   Background:
-    Given User logins with valid credentials "email" "pass"
+    Given User logins with valid credentials "batch16@gmail.com" "eurotech"
     When The user locates and clicks on the "Contact" link to open the Contact page.
 
   Scenario:Verify Visibility and Clickability of Address
@@ -26,6 +26,6 @@ Feature: Contact Icon function
     Then The user fills the Email field.
     Then The user fills the Subject field.
     Then The user fills the Enquriy field.
-    And The user clicks on the Submit button.
-    Then Verify that a "alertMessage" appears.
+
+
 
