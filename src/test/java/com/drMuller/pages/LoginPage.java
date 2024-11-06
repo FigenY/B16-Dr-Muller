@@ -26,8 +26,12 @@ public class LoginPage extends BasePage {
     @FindBy (xpath = "//button[@class='btn btn-success col-12']")
     public WebElement registrierungButton;
 
+    @FindBy (xpath = "//*[@id='navbarCollapse']/ul/li[1]/a")
+    public WebElement homePageButton;
+
     @FindBy (xpath = "//div[contains(text(), ' Anmeldung')]//li")
     public WebElement warningMessage;
+
 
 
     public void login(String username, String password) {
