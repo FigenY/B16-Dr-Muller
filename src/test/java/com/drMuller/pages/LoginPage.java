@@ -3,11 +3,10 @@ package com.drMuller.pages;
 import com.drMuller.utilities.BrowserUtils;
 import com.drMuller.utilities.ConfigReader;
 import com.drMuller.utilities.Driver;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.security.Key;
 
 public class LoginPage extends BasePage {
 
@@ -40,7 +39,14 @@ public class LoginPage extends BasePage {
         emailInput.sendKeys(username);
         BrowserUtils.waitFor(3);
         passwordInput.sendKeys(password + Keys.ENTER);
-        BrowserUtils.waitFor(3);
+        BrowserUtils.waitFor(5);
        //loginButton.click();
     }
+
+    public void loginWithCookie(String cookie) {
+     Driver.getDriver().get(ConfigReader.get("url"));
+    Cookie loginCookie = new Cookie(".Nop.Authentication", cookie);
+        Driver.getDriver().manage().addCookie(loginCookie);
+        Driver.getDriver().navigate().refresh();
+        }
 }
