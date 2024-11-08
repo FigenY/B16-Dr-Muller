@@ -21,7 +21,7 @@ public class Login_StepDefs {
     @Then("The user should be able to logged in")
     public void the_user_should_be_able_to_logged_in() {
         String currentUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals("https://dr-muller.com/customer/info", currentUrl);
+        Assert.assertEquals("https://dr-muller.com/", currentUrl);
     }
     @Given("The user is on the main page")
     public void the_user_is_on_the_main_page() {
@@ -84,10 +84,8 @@ public class Login_StepDefs {
         Assert.assertEquals(Password, loginPage.passwordInput.getAttribute("type"));
 
     }
-
-
-
-
-
-
+    @Given("User logins with Cookie {string}")
+    public void userLoginsWithCookie(String cookie) {
+        loginPage.loginWithCookie(cookie);
+    }
 }

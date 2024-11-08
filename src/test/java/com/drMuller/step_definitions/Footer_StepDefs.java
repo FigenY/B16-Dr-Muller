@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class Footer_StepDefs extends BasePage {
+public class Footer_StepDefs {
     HomePage homePage = new HomePage();
 
     @When("The user clicks on the {int} category in the footer")

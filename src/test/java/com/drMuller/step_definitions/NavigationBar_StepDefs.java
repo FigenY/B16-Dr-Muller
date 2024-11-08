@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class NavigationBar_StepDefs extends BasePage {
+public class NavigationBar_StepDefs {
     HomePage homePage = new HomePage();
 
 
